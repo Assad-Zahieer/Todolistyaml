@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+  api:
+   image: assadzahieer/api
+   container_name: back-end
+   ports:
+   - target: 8085
+     protocol: tcp
+   depends_on:
+    - mysql
+  mysql:
+   image: mysql:5.7
+   container_name: mysql
+   environment:
+     MYSQL_ROOT_PASSWORD: password
+     MYSQL_DATABASE: todo_list
+  react:
+   image: assadzahieer/react
+   container_name: front-end
+   ports:
+   - target: 3000
+   depends_on:
+   - api
+  nginx:
+   image: nginx:latest
+   container_name: nginx
+   ports:
+   - target: 80
+     published: 80
+     protocol: tcp
+   volumes:
+   - type: bind
+     source: ./nginx.conf
+     target: /etc/nginx/nginx.conf
+   depends_on:
+   - api
