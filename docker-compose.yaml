@@ -22,7 +22,7 @@ services:
    depends_on:
    - api
   nginx:
-   image: nginx:latest
+   image: assadzahieer/nginx
    container_name: nginx
    ports:
    - target: 80
