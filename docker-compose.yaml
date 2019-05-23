@@ -28,9 +28,9 @@ services:
    - target: 80
      published: 80
      protocol: tcp
-   volumes:
-   - type: bind
-     source: /var/jenkins_home/workspace/azuredeploy/Todolistyaml/nginx.conf
-     target: /etc/nginx/nginx.conf
+   # volumes:
+   # - type: bind
+     # source: /var/jenkins_home/workspace/azuredeploy/Todolistyaml/nginx.conf
+     # target: /etc/nginx/nginx.conf
    depends_on:
    - api
