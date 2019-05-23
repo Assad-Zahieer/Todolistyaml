@@ -30,7 +30,7 @@ services:
      protocol: tcp
    volumes:
    - type: bind
-     source: ./nginx.conf
+     source: /var/jenkins_home/workspace/azuredeploy/Todolistyaml/nginx.conf
      target: /etc/nginx/nginx.conf
    depends_on:
    - api
